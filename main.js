@@ -26,11 +26,13 @@ divSelection
   .style("width", function (d) {
     return `${d.co2}px`;
   })
-  .on("mouseover", function (d, i) {
-    toggleClass(i + 1, true);
+  .on("mouseover", function (_, d) {
+    let i = climate_daily_data.indexOf(d) + 1;
+    toggleClass(i, true);
   })
-  .on("mouseout", function (d, i) {
-    toggleClass(i + 1, false);
+  .on("mouseout", function (_, d) {
+    let i = climate_daily_data.indexOf(d) + 1;
+    toggleClass(i, false);
   });
 
 const listSelection = d3.select("#legend").selectAll("li");
@@ -42,9 +44,11 @@ listSelection
   .text(function (d) {
     return `${d.year}: ${d.co2}`;
   })
-  .on("mouseover", function (d, i) {
-    toggleClass(i + 1, true);
+  .on("mouseover", function (_, d) {
+    let i = climate_daily_data.indexOf(d) + 1;
+    toggleClass(i, true);
   })
-  .on("mouseout", function (d, i) {
-    toggleClass(i + 1, false);
+  .on("mouseout", function (_, d) {
+    let i = climate_daily_data.indexOf(d) + 1;
+    toggleClass(i, false);
   });
